@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Edit Food Items</h2>
+            <form method="POST" action="/UpdateCategory">  
+              <div class="form-group">
+                <label>Category Id</label>
+                <input type="text"  name="cat_id" value="{{categories[0]}}">
+              </div>
+              <div class="form-group">
+                <label>New Category Name</label>
+                <input type="text" name="cat_name" value="{{categories[1]}}">
+              </div>
+              <div class="form-group">
+                <label>New Category Type</label>
+                <input type="text" name="cat_veg" value="{{categories[2]}}">
+              </div>
+
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+    <head>
+           <style>
+                body{
+                    padding: 0px;
+                    margin: 0px;
+                    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/static/images/5.jpg);
+                    background-size: cover; 
+                }
+             
+               thead{
+                   text-align: center;
+                   color:white;
+               }
+                tr td
+               {
+                    text-align: center;
+                    color:white;
+               }
+               .text-center
+               {
+                   color:white;
+               }
+               .navbar-brand 
+               {
+                   color:white;
+               }
+               
+            
+            </style>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    
+    </head>
+    <body>
+    <div class="container">
+    <nav class="navbar navbar-expand-md navbar">
+                <a class="navbar-brand" href="/">food FOOD</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/showCategory">Category table</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/logoutAdmin"> Logout</a>
+                        </li>  
+            </nav>
+    
+                <h1 class="text-center">Food Item list</h1>
+                <div id="sidebar">
+                        <a name="" id="" class="btn btn-outline-light" href="addItem" role="button">Add Items</a>
+                    </div>
+                    <div class="table-responsive">
+                            <table class="table">
+                            <thead>
+                             <tr>
+                            <th>Item No</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Item Description</th>
+                            <th>Item Image</th>
+                            <th>Category ID</th>
+                            <th>Veg / Non Veg</th>
+                            <th>Delete Item</th>
+                            <th>Edit Item</th>
+                            </tr>
+                            </thead>
+                            {% for d in food %}
+                            <tr id="foodItem">
+                                    <td>{{d[0]}}</td>
+                                    <td>{{d[1]}}</td>
+                                    <td>{{d[2]}}</td>
+                                    <td><small>{{d[3]}}<small></td>
+                                    <td><img src="/static/images/{{d[4]}}"  height="50" width="50"/></td>
+                                    <td>{{d[5]}}</td>
+                                    <td>{{d[6]}}</td>
+                                    <td><a name="" id="" class="btn btn-outline-light btn-sm" href="DeleteFood/{{d[0]}}" role="button">Delete</a></td>
+                                    <td><a name="" id="" class="btn btn-outline-light btn-xm" href="EditFood/{{d[0]}}" role="button">Edit</a>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                        </tr>
+                </div>                  
+        </div>
+        
+    </div>
+    
+    </body>
+</html><!-- http://127.0.0.1:5000/ValidateData -->

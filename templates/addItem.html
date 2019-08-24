@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            .container{
+              width: 400px;
+              height:300px;
+              padding: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background:  rgba(0,0,0,0.5);
+              text-align: center;
+            }
+            .label{
+              floar:left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Add Food Items</h2>
+            <form method="POST" action="/SaveFood">  
+              <div class="form-group">
+                <label class="label">Add Food Item Id</label>
+                <input type="text" name="itemNo">
+              </div>
+              <div class="form-group">
+                <label>Add Food Item Name</label>
+                <input type="text" name="itemName">
+              </div>
+              <div class="form-group">
+                <label>Add Food Item Price</label>
+                <input type="text" name="itemPrice">
+              </div>
+              <div class="form-group">
+                <label>Add Food Item Description</label>
+                <input type="text" name="itemDescr">
+              </div>
+              <div class="form-group">
+                  <label>Add item Image</label>
+                  <div class="col-xs-3">
+                  <input type="file" name="itemImage"/>
+              </div>
+              </div>
+              <div class="form-group">
+                <td>Select Course </td>
+                    <td><select name="cat_id">
+                        {% for f in food %}
+                            <option value="{{f[0]}}">{{f[1]}}</option>
+                        {% endfor %}
+                    </select>
+              </div>
+              <div>
+                  <div class="form-group">
+                      <label for="sel1">Veg or Non veg :</label>
+                  <label class="radio-inline">
+                      <input type="radio" name="cat_veg" value="veg" checked>Vegeterian</label>
+                    <label class="radio-inline">
+                      <input type="radio" name="cat_veg" value="non_veg">Non Vegeterian</label>
+                      <br>
+                    </div>
+                </div>
+              
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>  
+    </body>
+</html>

@@ -1,0 +1,160 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <title>FOOD</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+  <style>
+    body{
+      padding: 0px;
+      margin: 0px;
+      background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/static/images/tomato.jpg);
+      background-size: cover; 
+    }
+    .navbar {
+      background:none;  ;
+      color: black;  
+    }
+    .nav-item{
+      color: white;
+    }
+    .card {
+      padding: 10px;
+    }
+    .jumbotron {
+      background: none;
+      color: aliceblue;
+    }
+    #bt{
+      float: right;
+    
+    }
+    .col-sm{
+      color: aliceblue;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .btn{
+      color: aliceblue;
+      
+    }
+    
+    
+    
+  </style>
+  </head>
+    <body>
+        
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="navbar-brand" href="/">food FOOD</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin</a>
+                        </li>
+                        
+                          <li class="nav-item">
+                          <a class="nav-link" href="#">About Us</a>
+                          </li> 
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                {% for cat in categories %}
+                                  <a class="dropdown-item" href="/showfood/{{cat[0]}}">{{cat[1]}}</a>
+                                  {% endfor %}
+                                  </div>
+                                  
+                                  <li class="nav-item">
+                                    {% if ("uname" in session)%} 
+
+                                    <a class="nav-link" href=""> hello {{session["uname"]}} </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownId"></div>
+                                    <a class="dropdown-item" href="/logout">Logout</a>
+                                    {%else%}
+                                  <a class="nav-link" href="/usrLogin"> Login </a>
+                                    {%endif%}
+                                    </li>
+                                    <li class="nav-item">
+                                     <a href="/showallcartitems"><img src="/static/images/cart.png" alt="" width="20px" height="20px"></a> 
+                                  </li>
+
+                                  </div>
+                    </ul>
+                    
+            </nav>
+            <div class="jumbotron">
+              <h1 class="display-5 text-right">Food FOOD</h1>
+                  <p class="lead">
+                      <a class="btn btn-outline-light"id="bt" href="Jumbo action link" role="button">More Items</a>
+                  </p>  
+              </div>
+              <!--
+            </select>
+            <script type="text/javascript">
+            var urlMenu = document.getElementById('menu');
+            urlMenu.onchange = function() {
+              var userOption = this.options[this.selectedIndex];
+              if (userOption.value != "nothing") {
+                window.open(userOption.value,"hello","");
+              } 
+            }
+            </script>
+              
+        </div>
+         <select class="custom-select" id="menu">
+            {% for cat in categories %}
+            <option value="/showfood/{{cat[0]}}">{{cat[1]}}</option>
+            {% endfor %}
+            -->
+                
+      <section>
+          <div class="container">
+              <div class="row">
+                  {% for cat in categories %}
+                <div class="col-sm">
+                    <div class="card-body">
+                      <h5 class="card-title">{{cat[1]}}</h5>
+                      <p class="card-text text-center"></p>
+                      <a href="/showfood/{{cat[0]}}" class="btn btn-outline-light btn-sm">Explore More</a>
+                    </div>
+              </div>
+              {% endfor %}
+            </div>
+            <>
+      </section> 
+      <div class="footer">
+      <p>Footer</p>
+      </div>
+      <!--
+      <h1 class="display-5 text-right">
+      </h1>{% if ("uname" in session)%} 
+      <h1>hello {{session["uname"]}}</h1>
+      <a href="/logout">
+        logout
+    </a>
+    {%else%}
+    <a href="/usrLogin">
+      login
+  </a>
+      {%endif%}</h1>
+      -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+  </html>

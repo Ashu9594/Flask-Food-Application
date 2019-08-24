@@ -1,0 +1,92 @@
+<html>
+    <head>
+            <style>
+               body{
+                    padding: 0px;
+                    margin: 0px;
+                    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/static/images/6.jpg);
+                    background-size: cover; 
+                }
+             
+               thead{
+                   text-align: center;
+                   color:white;
+               }
+                tr td
+               {
+                    text-align: center;
+                    color:white;
+               }
+               .text-center
+               {
+                   color:white;
+               }
+               .navbar-brand 
+               {
+                   color:white;
+               }
+               
+            </style>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    
+    </head>
+    <body>
+    <div class="container">
+        <header>
+    <nav class="navbar navbar-expand-md navbar">
+                <a class="navbar-brand" href="/">food FOOD</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/showFoodItem">Food Item table</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/logoutAdmin"> Logout</a>
+                        </li>  
+            </nav>
+    </header>
+        <h1 class="text-center">Category list</h1>
+        <div id="sidebar">
+            <ul>
+                <a name="" id="" class="btn btn-outline-light" href="/addCat" role="button">Add Category </a>
+            </ul>
+
+        </div>
+        <div class="table-responsive">
+                <table class="table">
+                <thead>
+                 <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Category Type</th>
+                <th>Delete Category</th>
+                <th>Delete Edit</th>
+                
+                </tr>
+                </thead>
+                {% for c in food %}
+                <tr id="foodItem">
+                        <td>{{c[0]}}</td>
+                        <td>{{c[1]}}</td>
+                        <td>{{c[2]}}</td>
+                        
+                        <td><a name="" id="" class="btn btn-outline-light" href="DeleteCategory/{{c[0]}}" role="button">Delete</a></td>
+                        <td><a name="" id="" class="btn btn-outline-light" href="EditCategory/{{c[0]}}" role="button">Edit</a></td>
+                    
+                    </tr>
+                    {%endfor%}
+                    </tr>
+        </div>
+    </div>
+
+    </body>
+</html>
